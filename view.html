@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details View</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Form</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- View Details Section -->
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Student Details</h2>
+    <div class="card shadow">
+      <div class="card-body" id="studentDetails"></div>
+    </div>
+
+    <!-- Display Profile Picture and Documents -->
+    <div class="card mt-4 p-4 shadow">
+      <h4>Profile Picture</h4>
+      <img id="profilePicDisplay" src="" alt="No Profile Picture Uploaded" class="img-fluid mb-3" style="max-width: 200px; border: 1px solid #ccc; padding: 5px;">
+
+      <h4>Uploaded Documents</h4>
+      <ul id="documentList" class="list-group"></ul>
+    </div>
+
+    <!-- Raw Data Display -->
+   
+  </div>
+
+  <!-- JavaScript for Displaying Data -->
+  <script>
+   // Retrieve and display student data
+const studentData = JSON.parse(localStorage.getItem('studentData'));
+if (studentData) {
+  document.getElementById('studentDetails').innerHTML = `
+    <h5>Full Name: ${studentData.fullName}</h5>
+    <p><strong>Date of Birth:</strong> ${studentData.dob}</p>
+    <p><strong>Gender:</strong> ${studentData.gender}</p>
+    <p><strong>Contact Number:</strong> ${studentData.contactNumber}</p>
+    <p><strong>Email Address:</strong> ${studentData.emailAddress}</p>
+    <p><strong>Address:</strong> ${studentData.address}</p>
+    <hr>
+    <h5>Parent/Guardian Details</h5>
+    <p><strong>Name:</strong> ${studentData.parentName}</p>
+    <p><strong>Relationship:</strong> ${studentData.relationship}</p>
+    <p><strong>Contact Number:</strong> ${studentData.parentContact}</p>
+    <p><strong>Email:</strong> ${studentData.parentEmail}</p>
+    <hr>
+    <h5>Academic Details</h5>
+    <p><strong>Current School Name:</strong> ${studentData.schoolName}</p>
+    <p><strong>Current Class:</strong> ${studentData.currentClass}</p>
+    <p><strong>Past Academic Performance:</strong> ${studentData.academicPerformance}</p>
+  `;
+}
+
+// Display profile picture
+const profilePic = localStorage.getItem('profilePic');
+const profilePicDisplay = document.getElementById('profilePicDisplay');
+if (profilePic) {
+  profilePicDisplay.src = profilePic;
+} else {
+  profilePicDisplay.alt = "No Profile Picture Uploaded";
+}
+
+// Display uploaded documents
+const documents = JSON.parse(localStorage.getItem('documents'));
+const docList = document.getElementById('documentList');
+
+if (documents) {
+  for (const [docType, docData] of Object.entries(documents)) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item';
+
+    if (docData) {
+      const link = document.createElement('a');
+      link.href = docData; // Base64 URL
+      link.download = `${docType}.jpg`; // Or use appropriate file extension
+      link.textContent = `${docType}: Download Document`;
+      li.appendChild(link);
+    } else {
+      li.textContent = `${docType}: Not Uploaded`;
+    }
+
+    docList.appendChild(li);
+  }
+}
+
+    
+  </script>
+</body>
+</html>

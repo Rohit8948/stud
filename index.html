@@ -12,14 +12,14 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">My Dashboard</a>
+      <a class="navbar-brand" href="#">Student Dashboard</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">My Applications</a></li>
+          <li class="nav-item"><a class="nav-link" href="view.html">View Details</a></li>
         </ul>
       </div>
     </div>
@@ -34,19 +34,19 @@
         <div class="card-header">Personal Information</div>
         <div class="card-body">
           <div class="row g-3">
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
-            <div class="col-md-3"><input type="date" class="form-control" placeholder="Date of Birth"></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="fullName" placeholder="Full Name" required></div>
+            <div class="col-md-3"><input type="date" class="form-control" id="dob" placeholder="Date of Birth"></div>
             <div class="col-md-3">
-              <select class="form-select" required>
+              <select class="form-select" id="gender" required>
                 <option selected disabled>Gender</option>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
               </select>
             </div>
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Contact Number"></div>
-            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address"></div>
-            <div class="col-12"><input type="text" class="form-control" placeholder="Address (City, State, ZIP Code)"></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="contactNumber" placeholder="Contact Number"></div>
+            <div class="col-md-6"><input type="emailAddress" class="form-control" id="emailAddress" placeholder="Email Address"></div>
+            <div class="col-12"><input type="text" class="form-control" id="address" placeholder="Address (City, State, ZIP Code)"></div>
           </div>
         </div>
       </div>
@@ -56,10 +56,10 @@
         <div class="card-header">Parent/Guardian Details</div>
         <div class="card-body">
           <div class="row g-3">
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Parent/Guardian Name" required></div>
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Relationship (Father, Mother, Guardian, etc.)"></div>
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Parent Contact Number"></div>
-            <div class="col-md-6"><input type="email" class="form-control" placeholder="Parent Email"></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="parentName" placeholder="Parent/Guardian Name" required></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="relationship" placeholder="Relationship (Father, Mother, Guardian, etc.)"></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="parentContact" placeholder="Parent Contact Number"></div>
+            <div class="col-md-6"><input type="email" class="form-control" id="parentEmail" placeholder="Parent Email"></div>
           </div>
         </div>
       </div>
@@ -69,9 +69,9 @@
         <div class="card-header">Academic Details</div>
         <div class="card-body">
           <div class="row g-3">
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Current School Name" required></div>
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Current Class" required></div>
-            <div class="col-12"><textarea class="form-control" rows="3" placeholder="Past Academic Performance (Optional)"></textarea></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="schoolName" placeholder="Current School Name" required></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="currentClass" placeholder="Current Class" required></div>
+            <div class="col-12"><textarea class="form-control" id="academicPerformance" rows="3" placeholder="Past Academic Performance (Optional)"></textarea></div>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
       <div class="card mb-3">
         <div class="card-header">Profile Picture Upload</div>
         <div class="card-body">
-          <input type="file" class="form-control">
+          <input type="file" class="form-control" id="profilePic">
         </div>
       </div>
 
@@ -88,10 +88,10 @@
       <div class="card mb-3">
         <div class="card-header">Document Uploads</div>
         <div class="card-body">
-          <div class="mb-2"><input type="file" class="form-control" placeholder="Birth Certificate"></div>
-          <div class="mb-2"><input type="file" class="form-control" placeholder="Previous Report Cards"></div>
-          <div class="mb-2"><input type="file" class="form-control" placeholder="Transfer Certificate (if applicable)"></div>
-          <div class="mb-2"><input type="file" class="form-control" placeholder="Other Relevant Documents"></div>
+          <div class="mb-2"><input type="file" class="form-control" id="birthCertificate"></div>
+          <div class="mb-2"><input type="file" class="form-control" id="reportCards"></div>
+          <div class="mb-2"><input type="file" class="form-control" id="transferCertificate"></div>
+          <div class="mb-2"><input type="file" class="form-control" id="otherDocs"></div>
         </div>
       </div>
 
@@ -106,5 +106,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
